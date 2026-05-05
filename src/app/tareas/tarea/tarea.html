@@ -1,0 +1,12 @@
+<app-tarjeta>
+    <article>
+        <h2>{{ tarea.titulo }}</h2>
+        <time datetime="">{{ tarea.fecha | date : 'fullDate' }} </time>
+        <p>{{ tarea.descripcion }}</p>
+        <p class="acciones">
+            <button (click)="finalizarTarea(tarea.id)">Terminada</button>
+        </p>
+    
+    </article>
+
+</app-tarjeta>

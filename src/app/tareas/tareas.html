@@ -1,0 +1,32 @@
+
+@if (isHabilitadoFolmulario) {
+    <app-tarea-nueva 
+        (isCancelar)="onCancelarTarea($event)"
+        (tareaCreada)="onCrearTarea($event)"
+        [usuarioId]="usuario.id">
+    </app-tarea-nueva>
+}
+
+
+<section id="tareas">
+    
+       
+    <h1> Tareas de {{ usuario.nombre }} </h1>
+    <header>
+        <menu>
+            <button (click)="agregarTarea()" >Agregar Tarea</button>
+        </menu>
+    </header>
+
+    <ul>
+        @for (tarea of tareasFiltradas; track tarea.id) {
+            <li>
+                <app-tarea [tarea]="tarea" (idTareaFinalizada)="onTareaFinalizada($event)"></app-tarea>
+            </li>
+        }
+    </ul>
+
+        
+</section>
+
+

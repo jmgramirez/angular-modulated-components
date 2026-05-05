@@ -1,0 +1,26 @@
+<app-encabezado></app-encabezado>
+
+<main>
+    <ul id="usuarios">
+        @for (usuario of usuarios; track usuario.id) {
+            <li >
+                <app-usuario 
+                    [usuarioElegido]="usuario" 
+                    [isSeleccionado]="usuario.id === userSelected?.id"
+                    (seleccion)="usuarioSeleccionado($event)"></app-usuario>
+            </li>
+        }
+    </ul>
+
+     @if (userSelected) {
+        <app-tareas 
+            [usuario] = "userSelected" 
+            [idUsuario]="userSelected.id"
+            ></app-tareas>
+
+     } @else {
+        <p id="textoCondicional">Selecciona un usuario</p>
+    }
+
+</main>
+
